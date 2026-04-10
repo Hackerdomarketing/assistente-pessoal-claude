@@ -32,27 +32,13 @@ Aguarde o usuário colar o ID antes de continuar.
 
 ---
 
-## PASSO 3 — Chave da API da Anthropic
-
-Explique que sem essa chave o assistente não funciona — ela é como a senha de acesso ao cérebro do Claude. Instrua:
-
-1. Acessar console.anthropic.com
-2. Fazer login ou criar conta gratuita
-3. Clicar em "API Keys" no menu lateral
-4. Clicar em "Create Key", dar qualquer nome, e copiar a chave
-5. A chave começa com: sk-ant-
-
-Aguarde o usuário colar a chave antes de continuar.
-
----
-
-## PASSO 4 — Nome do usuário
+## PASSO 3 — Nome do usuário
 
 Pergunte: "Qual nome devo usar para me referir a você?" (ex: João, Ana, Rafa)
 
 ---
 
-## PASSO 5 — Instalação
+## PASSO 4 — Instalação
 
 Com todas as informações coletadas, execute cada item abaixo em ordem. Informe o usuário o que está fazendo em cada etapa, com linguagem simples. Use as ferramentas do Claude Code (Bash, Write) para executar tudo.
 
@@ -413,7 +399,7 @@ Leia `~/.claude/workspace/BRIEF.md` antes de qualquer coisa.
 
 ---
 
-## PASSO 6 — Verificação final
+## PASSO 5 — Verificação final
 
 1. Confirme que todos os arquivos foram criados
 2. Informe o usuário que pode mandar uma mensagem no Telegram agora
