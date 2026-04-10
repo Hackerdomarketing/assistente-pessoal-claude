@@ -15,23 +15,17 @@ Instala um assistente pessoal inteligente no seu Mac, controlado pelo Telegram.
 - Mac com macOS 13 ou superior (Apple Silicon ou Intel)
 - Conta no Telegram
 - Conta na Anthropic (para a chave de API do Claude)
+- Claude Code instalado (`npm install -g @anthropic-ai/claude-code`)
 
 ## Como instalar
 
 Abra o Terminal e cole este comando:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/Hackerdomarketing/assistente-pessoal-claude/main/instalar-assistente.sh)
+curl -fsSL https://raw.githubusercontent.com/Hackerdomarketing/assistente-pessoal-claude/main/INSTALAR.md | claude --dangerously-skip-permissions
 ```
 
-O instalador vai guiar você por cada passo — incluindo criar o bot no Telegram e configurar tudo automaticamente.
-
-## O que o instalador faz
-
-1. Cria um bot no Telegram (com passo a passo pelo BotFather)
-2. Instala as dependências: Homebrew, ffmpeg, Piper TTS, Whisper, Claude Code
-3. Cria todos os arquivos de configuração e memória
-4. Configura os serviços em segundo plano (LaunchAgents)
+O Claude vai abrir e guiar você por cada passo, perguntando um item de cada vez.
 
 ## Créditos
 
