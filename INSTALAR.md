@@ -296,26 +296,10 @@ print((date.fromisoformat('$HOJE') - ultima).days)
 fi
 
 if [ "$CONSOLIDAR" = true ]; then
-  ULTIMA=$(cat "$MARKER" 2>/dev/null || echo "nunca")
-  DIARIOS=$(ls "$WORKSPACE/diario/"*.md 2>/dev/null | sort | tail -7 | while read f; do echo "- $(basename $f)"; done)
-  [ -z "$DIARIOS" ] && DIARIOS="(nenhum ainda)"
-  MSG="[CONSOLIDAR MEMÓRIA] $(date +%H:%M)
-
-Última consolidação: $ULTIMA
-Diários:
-$DIARIOS
-
-Instruções:
-1. Leia cada diário
-2. Extraia aprendizados duráveis sobre o usuário
-3. Acrescente em ~/.claude/workspace/MEMORY.md
-4. Nunca apague o que já existe
-5. Responda apenas: Memória consolidada."
   echo "$HOJE" > "$MARKER"
-
   curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
     --data-urlencode "chat_id=${CHAT_ID}" \
-    --data-urlencode "text=${MSG}" >/dev/null 2>&1
+    --data-urlencode "text=[CONSOLIDAR MEMÓRIA]" >/dev/null 2>&1
 fi
 # Se não há consolidação, roda silencioso — sem mensagem ao usuário
 ```
