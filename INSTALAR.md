@@ -312,13 +312,12 @@ Instruções:
 4. Nunca apague o que já existe
 5. Responda apenas: Memória consolidada."
   echo "$HOJE" > "$MARKER"
-else
-  MSG="[HEARTBEAT] $(date +%H:%M)"
-fi
 
-curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-  --data-urlencode "chat_id=${CHAT_ID}" \
-  --data-urlencode "text=${MSG}" >/dev/null 2>&1
+  curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+    --data-urlencode "chat_id=${CHAT_ID}" \
+    --data-urlencode "text=${MSG}" >/dev/null 2>&1
+fi
+# Se não há consolidação, roda silencioso — sem mensagem ao usuário
 ```
 
 Torne todos executáveis:
