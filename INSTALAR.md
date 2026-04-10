@@ -1,10 +1,3 @@
-# Instalação do Assistente Pessoal
-
-Cole o texto abaixo diretamente no Claude Code para iniciar a instalação guiada.
-
----
-
-```
 Quero que você instale o Assistente Pessoal Remoto no meu Mac. É um sistema que me permite conversar com você pelo Telegram, mesmo com o computador em segundo plano. Você responde em texto e em áudio, lembra de mim ao longo do tempo, e verifica tarefas automaticamente a cada 30 minutos.
 
 Faça as perguntas uma de cada vez e cuide de tudo que puder fazer sozinho.
@@ -335,7 +328,7 @@ chmod +x ~/.claude/gerar-contexto.sh ~/.claude/falar.sh ~/.claude/transcrever-au
 
 ### 5.13 LaunchAgents (serviços em segundo plano)
 
-Descubra o usuário do Mac com `whoami` e use nos arquivos abaixo.
+Descubra o usuário do Mac com `whoami` e use nos arquivos abaixo no lugar de USUARIO.
 
 `~/Library/LaunchAgents/com.USUARIO.claude-telegram.plist`:
 ```xml
@@ -390,7 +383,7 @@ Descubra o usuário do Mac com `whoami` e use nos arquivos abaixo.
 </plist>
 ```
 
-Ative os serviços (substitua USUARIO):
+Ative os serviços (substitua USUARIO pelo valor de `whoami`):
 ```bash
 launchctl unload ~/Library/LaunchAgents/com.USUARIO.claude-telegram.plist 2>/dev/null || true
 launchctl load ~/Library/LaunchAgents/com.USUARIO.claude-telegram.plist
@@ -402,7 +395,7 @@ launchctl load ~/Library/LaunchAgents/com.USUARIO.claude-telegram-heartbeat.plis
 
 Verifique se `~/.claude/CLAUDE.md` existe. Adicione no início do arquivo (sem apagar nada):
 
-```markdown
+```
 ## ASSISTENTE PESSOAL REMOTO
 
 ### Ao iniciar uma sessão
@@ -410,29 +403,29 @@ Leia `~/.claude/workspace/BRIEF.md` antes de qualquer coisa.
 
 ### Ao receber [HEARTBEAT]
 1. Leia `~/.claude/workspace/HEARTBEAT.md` e o diário de hoje
-2. Execute tarefas pendentes (`- [ ]`) e marque como feito
-3. Se houver algo relevante para o usuário, envie via `reply`
+2. Execute tarefas pendentes (- [ ]) e marque como feito
+3. Se houver algo relevante para o usuário, envie via reply
 4. Se não houver nada, não responda
 
 ### Ao receber [CONSOLIDAR MEMÓRIA]
 1. Leia os diários listados na mensagem
 2. Extraia aprendizados duráveis sobre o usuário
-3. Acrescente em `~/.claude/workspace/MEMORY.md` (nunca apague)
-4. Responda apenas: `Memória consolidada.`
+3. Acrescente em ~/.claude/workspace/MEMORY.md (nunca apague)
+4. Responda apenas: Memória consolidada.
 
 ### Mensagens de voz
-1. Chame `download_attachment` com o `attachment_file_id`
-2. Execute `bash ~/.claude/transcrever-audio.sh <arquivo>`
+1. Chame download_attachment com o attachment_file_id
+2. Execute bash ~/.claude/transcrever-audio.sh <arquivo>
 3. Use o texto transcrito como mensagem
 
 ### Quando responder em áudio
 - Em áudio: usuário enviou áudio E resposta é conversacional
 - Em texto: há código, URLs, listas técnicas ou passos detalhados
-- Para gerar: `bash ~/.claude/falar.sh "texto" <chat_id>`
+- Para gerar: bash ~/.claude/falar.sh "texto" <chat_id>
 
 ### Durante as conversas
-- Registre no diário: `~/.claude/workspace/diario/YYYY-MM-DD.md`
-- Atualize `NOW.md` quando iniciar tarefas longas
+- Registre no diário: ~/.claude/workspace/diario/YYYY-MM-DD.md
+- Atualize NOW.md quando iniciar tarefas longas
 ```
 
 ---
@@ -448,7 +441,4 @@ Finalize com uma mensagem clara informando:
 - Que o assistente está rodando em segundo plano
 - Que ele pode usar texto ou voz para se comunicar
 
----
-
-**Se qualquer passo falhar:** explique o erro em linguagem simples, tente corrigir e continue. Não abandone a instalação por causa de um erro sem tentar resolver primeiro.
-```
+Se qualquer passo falhar: explique o erro em linguagem simples, tente corrigir e continue. Não abandone a instalação por causa de um erro sem tentar resolver primeiro.
